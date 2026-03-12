@@ -162,6 +162,25 @@ session = cycronet.CronetClient(
 ```
 
 **Supported TLS Configurations:**
+
+##### use set_tls_profiles() func
+```python
+import cycronet
+
+# 更友好的 API，功能相同
+cycronet.set_tls_profiles({
+    "chrome_test": {
+        "cipher_suites": ["TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"],
+        "tls_curves": ["X25519"],
+        "tls_extensions": []
+    }
+})
+
+session = cycronet.CronetClient(chrometls="chrome_test")
+
+```
+
+
 - `chrome_144`: Chrome 144 version TLS fingerprint (default)
 
 #### Adding Custom TLS Configurations

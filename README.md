@@ -164,7 +164,26 @@ session = cycronet.CronetClient(
 **支持的 TLS 配置：**
 - `chrome_144`: Chrome 144 版本的 TLS 指纹（默认）
 
-#### 添加自定义 TLS 配置
+
+##### 使用 set_tls_profiles() 函数
+```python
+import cycronet
+
+# 更友好的 API，功能相同
+cycronet.set_tls_profiles({
+    "chrome_test": {
+        "cipher_suites": ["TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"],
+        "tls_curves": ["X25519"],
+        "tls_extensions": []
+    }
+})
+
+session = cycronet.CronetClient(chrometls="chrome_test")
+
+```
+
+##### 你可以通过编辑 `tls_profiles.json` 文件来添加自定义的 TLS 指纹配置。
+
 
 你可以通过编辑 `tls_profiles.json` 文件来添加自定义的 TLS 指纹配置。
 
